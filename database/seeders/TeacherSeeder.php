@@ -18,5 +18,13 @@ class TeacherSeeder extends Seeder
         DB::table('teachers')->insert([
             'name' => '殺せんせー'
         ]);
+        
+        DB::table('teachers')->insert([
+            'name' => '安西先生'
+        ]);
+        
+        DB::table('teachers')->insert([
+            'name' => 'ぬーべー'
+        ]);
     }
 }

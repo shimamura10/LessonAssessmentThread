@@ -25,5 +25,25 @@ class PostSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => 2,
+            'lesson_id' => 2,
+            'comment' => '美しい計算や',
+            'atmosphere' => 2,
+            'task_amount' => 3,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('posts')->insert([
+            'user_id' => 3,
+            'lesson_id' => 3,
+            'comment' => '先生が面白そう',
+            'atmosphere' => 5,
+            'task_amount' => 3,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
