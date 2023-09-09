@@ -23,5 +23,21 @@ class UserSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        
+         DB::table('users')->insert([
+            'name' => '桜木花道',
+            'email' => 'a;sbsa;f@gmail.com',
+            'password' => '12345678',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+         DB::table('users')->insert([
+            'name' => '立野 広',
+            'email' => 'afdshjj;f@gmail.com',
+            'password' => '12345678',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
