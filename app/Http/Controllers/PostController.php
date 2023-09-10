@@ -7,7 +7,6 @@ use App\Models\Post;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 
-
 class PostController extends Controller
 {
     public function index(Post $post)
@@ -15,21 +14,17 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
-   public function show(Post $post)
+
+    public function show(Lesson $lesson)
     {
         // Eloquent モデルを使用してコメントデータを取得
-        $comments = Post::where('lesson_id', $post->id)->select('comment', 'atmosphere','task_amount')->get();
-    
+        // $comments = Post::where('lesson_id', $post->id)->pluck('comment');
+        $comments = Post::where('lesson_id', $lesson->id)->get();    
         // ビューにデータを渡す
         return view('posts.show', [
-            'post' => $post,
+            'lesson' => $lesson,
             'comments' => $comments,
         ]);
-    }
-
-    public function create(Category $category)
-    {
-        return view('posts/create')->with(['categories' => $category->get()]);
     }
 
     public function store(Post $post, Request $request)
@@ -65,7 +60,7 @@ class PostController extends Controller
         $post->task_amount = $request->input('rating_task');
         $post->save();
         
-         return redirect('/post/{{ $lesson->id }}');
+         return redirect('/post/{{ $->id }}');
     }
 
 
