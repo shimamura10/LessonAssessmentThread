@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [LessonController::class, 'index'])->name('index');
     Route::get('/createLesson', [LessonController::class, 'create'])->name('create.lesson');
     Route::post('/storeLesson', [LessonController::class, 'store'])->name('store.lesson');
+
 });
 
 require __DIR__.'/auth.php';

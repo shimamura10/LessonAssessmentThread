@@ -8,12 +8,21 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>詳細画面</h1>
+        <h1>授業レビュー</h1>
         <div>
-            <p>タイトル：{{ $post->title }}</p>
-            <p>本文：{{ $post->body }}</p>
-            <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+            <h2>{{$post->lesson->name}}</h2>
+            <p>教授名{{$post->lesson->teacher->name}}</p>
+            <p>{{$post->lesson->time->name}}</p>
+            <P>雰囲気{{$post->atmosphere}}</P>
+            <P>課題量{{$post->task_amount}}</P>
+            <p>コメント{{$post->lesson->comments}}</p>
         </div>
+        <div>
+            <div>
+            @foreach($comments as $comment)
+                <p>{{ $comment }}</p>
+            @endforeach
+            </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
             <a href="/">戻る</a>
