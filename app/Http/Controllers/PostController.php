@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Lesson;
 
 class PostController extends Controller
 {
@@ -13,14 +14,15 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
-   public function show(Post $post)
+
+    public function show(Lesson $lesson)
     {
         // Eloquent モデルを使用してコメントデータを取得
-        $comments = Post::where('lesson_id', $post->id)->select('comment', 'atmosphere','task_amount')->get();
-    
+        // $comments = Post::where('lesson_id', $post->id)->pluck('comment');
+        $comments = Post::where('lesson_id', $lesson->id)->get();    
         // ビューにデータを渡す
         return view('posts.show', [
-            'post' => $post,
+            'lesson' => $lesson,
             'comments' => $comments,
         ]);
     }
