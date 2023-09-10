@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/', [LessonController::class, 'index'])->name('index');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
+    Route::put('/posts/{post}/comment', [PostController::class, 'update'])->name('update');
+    Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('comment');
+    Route::post('/posts/{lesson}/comment', [PostController::class, 'storeComment'])->name('store.comment');
     Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('comment');
     Route::get('/createLesson', [LessonController::class, 'create'])->name('create.lesson');
     Route::post('/storeLesson', [LessonController::class, 'store'])->name('store.lesson');

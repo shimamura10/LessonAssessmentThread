@@ -24,7 +24,10 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            $rules = [
+            'atmosphere' => 'required|integer|between:1,5',
+            'task_amount' => 'required|integer|between:1,5',
+            'comment' => 'required|string',
         ];
     }
 }
