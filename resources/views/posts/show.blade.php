@@ -48,7 +48,7 @@
                 </article>
                 <div class="create-btn-area">
                   <div href="/posts/create/{{ $lesson->id }}">
-                    <a class="create-btn">コメント投稿</a>
+                    <a class="create-btn" href="/posts/{{ $lesson->id }}/comment">コメント投稿</a>
                   </div>
                 </div>
                 <div class="posts-area">
