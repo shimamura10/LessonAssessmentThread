@@ -13,10 +13,10 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
-    public function show(Post $post)
+   public function show(Post $post)
     {
         // Eloquent モデルを使用してコメントデータを取得
-        $comments = Post::where('lesson_id', $post->id)->pluck('comment');
+        $comments = Post::where('lesson_id', $post->id)->select('comment', 'atmosphere','task_amount')->get();
     
         // ビューにデータを渡す
         return view('posts.show', [
@@ -49,5 +49,8 @@ class PostController extends Controller
 
         return redirect('/posts/' . $post->id);
     }
-
+    public function comment(Post $post)
+    {
+        return view('posts.comment_create')->with(['post' => $post]);
+    }
 }
