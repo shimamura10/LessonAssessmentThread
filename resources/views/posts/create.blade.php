@@ -1,32 +1,40 @@
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <body>
-        <h2>授業スレッド作成</h2>
-        <form action="{{ route('store.lesson') }}" method="POST">
-            @csrf
-            <div>
-                <h2>授業名</h2>
-                <input type="text" name="lesson_name">
-            </div>
-            <div>
-                <h2>教授名</h2>
-                <input type="text" name="teacher_name">
-            </div>
-            <div>
-                <h2>時限</h2>
-                <select name="time_id">
-                    <!--value=0が送信されるとエラーになると思われるので、value=0のoptionは作りたくない。作るならvalidationが必要。-->
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" />
+  </head>
+  <x-app-layout>
+    <x-slot name="header"></x-slot>
+      <body>
+        <div class="page-title-area">
+          <div class="page-title">
+            <h1>授業スレッド作成</h1>
+          </div>
+        </div>
+        <div class="window">
+          <div class="show-area">
+            <div class="lessons-area">
+              <div class="lessons">
+                <div class="back"><a href="/">戻る</a></div>
+                <form class="lesson-create-area" action="{{ route('store.lesson') }}" method="POST">
+                  <input class="lesson-input" type="text" name="lesson_name" placeholder="授業名を入力" />
+                  <input class="lesson-input" type="text" name="teacher_name" placeholder="教授名を入力" />
+                  <select class="lesson-select" name="time_id">
+                    <option value="0" selected disabled>時限を選択</option>
                     @foreach ($times as $time)
-                        <option value="{{ $time->id }}">{{ $time->name }}</option>
+                    <option value="{{ $time->id }}"></option>
                     @endforeach
-                </select>
+                  </select>
+                  <input class="submit" type="submit" value="作成" />
+                </form>
+              </div>
             </div>
-            <input type="submit" value="作成"/>
-        </form>
-        <div><a href="/">戻る</a></div>
-    </body>
+          </div>
+        </div>
+      </body>
+    </x-app-layout>
 </html>
