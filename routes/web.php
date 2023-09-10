@@ -30,9 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::get('/', [LessonController::class, 'index'])->name('index');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
     Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('comment');
+    Route::get('/createLesson', [LessonController::class, 'create'])->name('create.lesson');
+    Route::post('/storeLesson', [LessonController::class, 'store'])->name('store.lesson');
 });
 
 require __DIR__.'/auth.php';
