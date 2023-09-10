@@ -62,6 +62,9 @@ class PostController extends Controller
         
          return redirect('/posts/' . $lesson->id) ;
     }
-
-
+    
+    public function commentCreate(Lesson $lesson)
+    {
+        return view('posts.commentCreate')->with(['lesson' => $lesson]);
+    }
 }

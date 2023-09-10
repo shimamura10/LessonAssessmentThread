@@ -19,7 +19,7 @@ h2 {
 }
 
 .show-area {
-  @apply w-full relative;
+  @apply w-full relative bg-white;
 }
 
 .page-title-area {
@@ -48,6 +48,10 @@ h2 {
 
 .lesson {
   @apply border-2 border-blue-300 mb-3 rounded-lg hover:transition hover:border-blue-600 hover:-translate-y-1 active:border-yellow-200;
+}
+
+.lesson-mypage {
+  @apply border-2 border-blue-300 mb-3 rounded-lg;
 }
 
 .lesson-container {
@@ -108,6 +112,14 @@ h2 {
 
 .comment-user {
   @apply mx-auto border-2 rounded px-2 border-green-200;
+}
+
+.create-btn-area {
+  @apply w-full text-center my-10;
+}
+
+.create-btn a {
+  @apply inline-block border-2 rounded border-green-400 w-4/5 py-3 hover:bg-green-400 hover:text-white active:bg-white active:text-black;
 }
 
 .post-area {
@@ -200,4 +212,32 @@ h2 {
 
 .submit {
   @apply w-3/5 mx-auto p-3 border-2 border-gray-500 hover:bg-gray-500 hover:text-white active:bg-white active:text-black;
+}
+
+.lesson-create-area {
+  @apply flex flex-col items-center;
+}
+
+.lesson-input, .lesson-select {
+  @apply w-4/5 max-w-2xl p-5 border-2 border-blue-300 mb-10;
+}
+
+.comment-title {
+  @apply mt-10;
+}
+
+.comment-create-area {
+  @apply flex flex-col items-center mt-5;
+}
+
+.comment-select {
+  @apply w-4/5 max-w-2xl p-5 border-2 border-green-300 mb-10;
+}
+
+.create-comment {
+  @apply w-full border-2 rounded border-green-300 p-5 text-xl mb-10;
+}
+
+.back {
+  @apply mb-10;
 }

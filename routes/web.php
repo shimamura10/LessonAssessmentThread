@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}/comment', [PostController::class, 'comment'])->name('comment');
     Route::get('/createLesson', [LessonController::class, 'create'])->name('create.lesson');
     Route::post('/storeLesson', [LessonController::class, 'store'])->name('store.lesson');
+    Route::get('/posts/create/{lesson}', [LessonController::class, 'lessonComment'])->name('lessonComment');
 });
 
 require __DIR__.'/auth.php';
