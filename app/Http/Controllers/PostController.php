@@ -15,7 +15,14 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts/show')->with(['post' => $post]);
+        // Eloquent モデルを使用してコメントデータを取得
+        $comments = Post::where('lesson_id', $post->id)->pluck('comment');
+    
+        // ビューにデータを渡す
+        return view('posts.show', [
+            'post' => $post,
+            'comments' => $comments,
+        ]);
     }
 
     public function create(Category $category)
