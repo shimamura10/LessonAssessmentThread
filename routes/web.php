@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LessonController;
 use Illuminate\Support\Facades\Route;
 
 /*
