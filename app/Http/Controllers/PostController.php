@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\Lesson;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -25,11 +25,6 @@ class PostController extends Controller
             'lesson' => $lesson,
             'comments' => $comments,
         ]);
-    }
-
-    public function create(Category $category)
-    {
-        return view('posts/create')->with(['categories' => $category->get()]);
     }
 
     public function store(Post $post, Request $request)
@@ -55,4 +50,18 @@ class PostController extends Controller
     {
         return view('posts.comment_create')->with(['post' => $post]);
     }
+    
+   public function storeComment(Request $request, Post $post, Lesson $lesson)
+    {
+        $post->user_id = Auth::user()->id;
+        $post->lesson_id = $lesson->id;
+        $post->comment = $request->input('comment');
+        $post->atmosphere = $request->input('rating_atmosphere');
+        $post->task_amount = $request->input('rating_task');
+        $post->save();
+        
+         return redirect('/posts/' . $lesson->id) ;
+    }
+
+
 }
