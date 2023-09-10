@@ -1,3 +1,203 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl text-center;
+}
+
+.window {
+  @apply flex;
+}
+
+.main-area {
+  @apply w-3/4 relative bg-white;
+}
+
+.show-area {
+  @apply w-full relative;
+}
+
+.page-title-area {
+  @apply z-10 bg-white w-full h-20 border-b-2 border-blue-400;
+}
+
+.page-title {
+  @apply text-center pt-5;
+}
+
+.lessons-area {
+  @apply p-4;
+}
+
+.sort-area {
+  @apply w-full h-10 text-right;
+}
+
+.sort {
+  @apply border-2 border-blue-300;
+}
+
+.lessons {
+  @apply mt-4 mx-auto w-4/5 max-w-2xl;
+}
+
+.lesson {
+  @apply border-2 border-blue-300 mb-3 rounded-lg hover:transition hover:border-blue-600 hover:-translate-y-1 active:border-yellow-200;
+}
+
+.lesson-container {
+  @apply p-4;
+}
+
+.lesson-name {
+  @apply text-2xl text-center mb-4;
+}
+
+.lesson-info {
+  @apply flex mb-2;
+}
+
+.lesson-info p {
+  @apply text-sm border-2 p-0.5;
+}
+
+.time {
+  @apply mr-4 border-yellow-300;
+}
+
+.teacher-name {
+  @apply border-red-300;
+}
+
+.points-area {
+  @apply mb-4;
+}
+
+.points-area p {
+  @apply text-xl;
+}
+
+.atmosphere-point {
+  @apply flex;
+}
+
+.task-point {
+  @apply flex;
+}
+
+.point {
+  @apply mx-auto;
+}
+
+.lesson-bottom {
+  @apply flex;
+}
+
+.comment-count-area {
+  @apply grow bg-slate-300;
+}
+
+.comment-count {
+  @apply mx-auto border-2 rounded px-2 border-blue-200;
+}
+
+.comment-user {
+  @apply mx-auto border-2 rounded px-2 border-green-200;
+}
+
+.post-area {
+  @apply grow bg-slate-300;
+}
+
+.post {
+  @apply mx-auto px-2 border-b-2 border-green-400 first:border-t-2;
+}
+
+.comment-area{
+  @apply mb-4;
+}
+
+.comment {
+  @apply w-4/5 mx-auto p-2 border-2 border-green-200 rounded;
+}
+
+.comment p {
+  @apply text-lg text-left;
+}
+
+.post-bottom {
+  @apply flex;
+}
+
+.post-bottom p {
+  @apply text-sm;
+}
+
+.create-day {
+  @apply flex-none;
+}
+
+.filter-area {
+  @apply w-1/4 border-l-2 border-blue-500 bg-white;
+}
+
+.filter-title {
+  @apply my-10;
+}
+
+.filter-container {
+  @apply w-4/5 mx-auto;
+}
+
+.filter {
+  @apply flex flex-col; 
+}
+
+.filter-container select {
+  @apply h-12 mb-16 border-2 text-center;
+}
+
+.time-filter {
+  @apply border-yellow-300 ;
+}
+
+.teacher-filter {
+  @apply border-red-300 ;
+}
+
+.lesson-filter {
+  @apply border-green-300 ;
+}
+
+.filter-search-area {
+  @apply flex mb-4;
+}
+
+.filter-search {
+  @apply p-1 border-2 w-4/5;
+}
+
+.teacher-search {
+  @apply border-red-200 ;
+}
+
+.lesson-search {
+  @apply border-green-200 ;
+}
+
+.teacher-filter-btn {
+  @apply w-1/5 text-center border-2 border-red-200 hover:bg-red-200 hover:text-white active:bg-white active:text-black;
+}
+
+.lesson-filter-btn {
+  @apply w-1/5 text-center border-2 border-green-200 hover:bg-green-200 hover:text-white active:bg-white active:text-black;;
+}
+
+.submit {
+  @apply w-3/5 mx-auto p-3 border-2 border-gray-500 hover:bg-gray-500 hover:text-white active:bg-white active:text-black;
+}
