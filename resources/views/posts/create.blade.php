@@ -5,29 +5,27 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>チーム開発会へようこそ！</h1>
-        <h2>投稿作成</h2>
-        <form action="/posts" method="POST">
+        <h2>授業スレッド作成</h2>
+        <form action="{{ route('store.lesson') }}" method="POST">
             @csrf
             <div>
-                <h2>タイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                <h2>授業名</h2>
+                <input type="text" name="lesson_name">
             </div>
             <div>
-                <h2>本文</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                <h2>教授名</h2>
+                <input type="text" name="teacher_name">
             </div>
             <div>
-                <h2>カテゴリー</h2>
-                <select name="post[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <h2>時限</h2>
+                <select name="time_id">
+                    <!--value=0が送信されるとエラーになると思われるので、value=0のoptionは作りたくない。作るならvalidationが必要。-->
+                    @foreach ($times as $time)
+                        <option value="{{ $time->id }}">{{ $time->name }}</option>
                     @endforeach
                 </select>
             </div>
-            <input type="submit" value="保存"/>
+            <input type="submit" value="作成"/>
         </form>
         <div><a href="/">戻る</a></div>
     </body>

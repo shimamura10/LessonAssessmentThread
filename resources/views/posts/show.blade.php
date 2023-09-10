@@ -13,7 +13,16 @@
             <h2>{{$post->lesson->name}}</h2>
             <p>教授名{{$post->lesson->teacher->name}}</p>
             <p>{{$post->lesson->time->name}}</p>
+            <P>雰囲気{{$post->atmosphere}}</P>
+            <P>課題量{{$post->task_amount}}</P>
+            <p>コメント{{$post->lesson->comments}}</p>
         </div>
+        <div>
+            <div>
+            @foreach($comments as $comment)
+                <p>{{ $comment }}</p>
+            @endforeach
+            </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
             <a href="/">戻る</a>
