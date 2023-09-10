@@ -9,8 +9,12 @@ use App\Models\Teacher;
 
 class LessonController extends Controller
 {
-    public function index(Lesson $lesson, Time $time, Teacher $teacher)
+    public function index(Request $request, Lesson $lesson, Time $time, Teacher $teacher)
     {
-        return view('posts/index')->with(['lessons' => $lesson->getPaginateByLimit(), 'times' => $time->get(), 'teachers' => $teacher->get()]);
+        $lesson_id = $request->input('lesson_id', 0);
+        $time_id = $request->input('time_id', 0);
+        $teacher_id = $request->input('teacher_id', 0);
+        
+        return view('posts/index')->with(['lessons' => $lesson->getPaginateByLimit($lesson_id, $time_id, $teacher_id), 'times' => $time->get(), 'teachers' => $teacher->get()]);
     }
 }

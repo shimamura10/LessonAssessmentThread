@@ -30,24 +30,68 @@
                 </div>
                 <h2>検索</h2>
                 <div>
-                    <select>
-                        @foreach ($times as $time)
-                            <option>{{ $time->name }}</option>
-                        @endforeach
-                    </select>
-                    <select>
-                        @foreach ($teachers as $teacher)
-                            <option>{{ $teacher->name }}</option>
-                        @endforeach
-                    </select>
-                    <select>
-                        @foreach ($lessons as $lesson)
-                            <option>{{ $lesson->name }}</option>
-                        @endforeach
-                    </select>
+                    <form method="GET" action="{{ route("index") }}">
+                        @csrf
+                        <select name="time_id">
+                            <option value="0">時限</option>
+                            @foreach ($times as $time)
+                                <option value="{{ $time->id }}">{{ $time->name }}</option>
+                            @endforeach
+                        </select>
+                        <div>
+                            <select id="select-teacher" name="teacher_id">
+                                <option value="0">教授</option>
+                                @foreach ($teachers as $teacher)
+                                    <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" id="serch-input-teacher" placeholder="教授名を検索…">
+                            <button onclick="searchTeachers()">検索</button>
+                        </div>
+                        <div>
+                            <select id="select-lesson" name="lesson_id">
+                                <option value="0">授業</option>
+                                @foreach ($lessons as $lesson)
+                                    <option value="{{ $lesson->id }}">{{ $lesson->name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" id="serch-input-lesson" placeholder="授業名を検索…">
+                            <button onclick="searchLessons()">検索</button>
+                        </div>
+                        <input type="submit" value="Submit"> <!-- 送信ボタン -->
+                    </form>
                 </div>
+                <div class='paginate'>
+                    {{ $lessons->links() }}
+                </div>
+                
+                
                 <script>
+                    function searchTeachers() {
+                        const searchTerm = document.getElementById('serch-input-teacher').value.toLowerCase();
+                        const teachers = document.querySelectorAll('#select-teacher option');
+                
+                        teachers.forEach(teacher => {
+                            if(teacher.textContent.toLowerCase().includes(searchTerm)) {
+                                teacher.style.display = 'block'; // Matched shop names are displayed
+                            } else {
+                                teacher.style.display = 'none'; // Non-matching shop names are hidden
+                            }
+                        });
+                    }
                     
+                    function searchLessons() {
+                        const searchTerm = document.getElementById('serch-input-lesson').value.toLowerCase();
+                        const teachers = document.querySelectorAll('#select-lesson option');
+                
+                        teachers.forEach(teacher => {
+                            if(teacher.textContent.toLowerCase().includes(searchTerm)) {
+                                teacher.style.display = 'block'; // Matched shop names are displayed
+                            } else {
+                                teacher.style.display = 'none'; // Non-matching shop names are hidden
+                            }
+                        });
+                    }
                 </script>
             </body>
     </x-app-layout>
