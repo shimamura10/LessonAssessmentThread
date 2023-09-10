@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('comments');
+            $table->integer('comments');
             $table->float('atmosphere_average');
             $table->float('task_amount_average');
             $table->timestamps();

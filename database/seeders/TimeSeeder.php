@@ -18,5 +18,13 @@ class TimeSeeder extends Seeder
         DB::table('times')->insert([
             'name' => '月曜1限'
         ]);
+        
+        DB::table('times')->insert([
+            'name' => '水曜3限'
+        ]);
+        
+        DB::table('times')->insert([
+            'name' => '木曜4限'
+        ]);
     }
 }
