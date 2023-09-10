@@ -60,7 +60,7 @@ class PostController extends Controller
         $post->task_amount = $request->input('rating_task');
         $post->save();
         
-         return redirect('/post/{{ $->id }}');
+         return redirect('/posts/' . $lesson->id) ;
     }
 
 
