@@ -21,12 +21,13 @@
               <div class="lessons">
                 <div class="back"><a href="/">戻る</a></div>
                 <form class="lesson-create-area" action="{{ route('store.lesson') }}" method="POST">
+                  @csrf
                   <input class="lesson-input" type="text" name="lesson_name" placeholder="授業名を入力" />
                   <input class="lesson-input" type="text" name="teacher_name" placeholder="教授名を入力" />
                   <select class="lesson-select" name="time_id">
                     <option value="0" selected disabled>時限を選択</option>
                     @foreach ($times as $time)
-                    <option value="{{ $time->id }}"></option>
+                    <option value="{{ $time->id }}">{{ $time->name }}</option>
                     @endforeach
                   </select>
                   <input class="submit" type="submit" value="作成" />
